@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+button {
+    cursor: pointer;
+}
+.container {
+    padding: 10px;
+}
+.svgClass {
+    display: block;
+    width: 65px;
+    margin-bottom: -14px;
+}
+
+.car-block {
+    padding: 0;
+    border: solid red;
+    border-width: 0 0 3px 0;
+    margin-bottom: 20px;
+}
+
+.car-name {
+    display: block;
+    margin-bottom: 5px;
+    margin: 0;
+}
+td,th {
+    width: 100px;
+    text-align: center;
+}
+
+.winners-block {
+    display: none;
+}
