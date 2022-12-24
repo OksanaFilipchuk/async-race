@@ -6,7 +6,9 @@ let addCarToPage = function (e) {
   let name = createCarForm.elements["carName"].value;
   let color = createCarForm.elements["carColor"].value;
   addCar(name, color);
-  renderGarageCars();
+  let page = +document.querySelector(".page-number").textContent;
+
+  renderGarageCars(page, 7);
 };
 let addCar = async function (name, color) {
   let doc = {
@@ -31,7 +33,8 @@ let updateCar = async function (e) {
     body: JSON.stringify(doc),
     headers: { "Content-type": "application/json" },
   });
-  renderGarageCars();
+  let page = +document.querySelector(".page-number").textContent;
+  renderGarageCars(page, 7);
 };
 
 let generateCars = function () {
@@ -39,7 +42,8 @@ let generateCars = function () {
   newCars.forEach((el) => {
     addCar(...el);
   });
-  renderGarageCars();
+  let page = +document.querySelector(".page-number").textContent;
+  renderGarageCars(page, 7);
 };
 
 let createCarForm = document.querySelector(".garage-block-create-car");

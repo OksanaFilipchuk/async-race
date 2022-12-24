@@ -31,11 +31,8 @@ function renderPageElements() {
       <button class = "garage-block-button" id = "generate-button">Generate</button>
     </div>
     <p class = "garage-header">Garage</p>`;
-  let pageNumber = document.createElement("p");
-  pageNumber.className = "page-number";
   let carsWrapper = document.createElement("div");
   carsWrapper.className = "cars-wrapper";
-
   let winnerBlock = document.createElement("div");
   winnerBlock.className = "winners-block";
   winnerBlock.innerHTML = `<p class = "winners-count">Winners()</p>
@@ -54,8 +51,19 @@ function renderPageElements() {
   container.appendChild(header);
   container.appendChild(garageBlock);
   container.appendChild(winnerBlock);
-  garageBlock.appendChild(pageNumber);
   garageBlock.appendChild(carsWrapper);
+  let prevButton = document.createElement("button");
+  prevButton.id = "prev-button";
+  prevButton.textContent = "Prev";
+  let nextButton = document.createElement("button");
+  nextButton.id = "next-button";
+  nextButton.textContent = "Next";
+  let pageNumber = document.createElement("span");
+  pageNumber.className = "page-number";
+  pageNumber.textContent = 1;
+  garageBlock.appendChild(prevButton);
+  garageBlock.appendChild(pageNumber);
+  garageBlock.appendChild(nextButton);
 }
 
 renderPageElements();

@@ -3,6 +3,10 @@
 }
 button {
     cursor: pointer;
+    margin: 0 5px;
+}
+button:disabled {
+    cursor: not-allowed;
 }
 .container {
     padding: 10px;
@@ -21,8 +25,8 @@ button {
 }
 
 .car-name {
-    display: block;
-    margin-bottom: 5px;
+    display: inline-block;
+    width: 175px;
     margin: 0;
 }
 td,th {
@@ -32,4 +36,7 @@ td,th {
 
 .winners-block {
     display: none;
+}
+.page-number {
+    margin: 0 10px;
 }

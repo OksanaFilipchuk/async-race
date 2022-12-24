@@ -1,10 +1,21 @@
 import { carSvg } from "./car-svg.js";
 import { carHandler } from "./carBlockEvents.js";
+import { changePagination } from "./pagination.js";
 
-export let renderGarageCars = async function () {
+export let renderGarageCars = async function (page, limit) {
   document.querySelector(".cars-wrapper").innerHTML = "";
-  let response = await fetch("http://localhost:3000/garage");
+  let response = await fetch(
+    `http://localhost:3000/garage?_page=${page}&_limit=${limit}`
+  );
   let json = await response.json();
+  let totalCount = response.headers.get("x-total-count");
+  if (+totalCount === (page - 1) * limit) {
+    await renderGarageCars(page - 1, 7);
+    return;
+  }
+  changePagination(page, totalCount, limit);
+  document.querySelector(".page-number").innerHTML = page;
+  document.querySelector(".garage-header").innerHTML = `Garage(${totalCount})`;
   json.forEach((el) => {
     showGarageCar(el);
   });
@@ -37,4 +48,4 @@ function showGarageCar(element) {
   carBlock.innerHTML = carBlock.innerHTML + carSvg(element.color);
   document.querySelector(".cars-wrapper").appendChild(carBlock);
 }
-renderGarageCars();
+renderGarageCars(1, 7);
