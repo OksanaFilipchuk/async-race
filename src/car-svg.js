@@ -1,5 +1,5 @@
 export let carSvg = (color) => {
-  return `<svg class = "svgClass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  return `
 <g  data-name="Fill Outline">
   <path
     id="svgInternalID"
@@ -42,5 +42,5 @@ export let carSvg = (color) => {
     d="M49,40a4,4,0,1,0,4,4A4,4,0,0,0,49,40Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,49,46Z"
   />
 </g>
-</svg>`;
+`;
 };

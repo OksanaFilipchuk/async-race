@@ -1,13 +1,17 @@
 import { renderGarageCars } from "./renderGarageCars.js";
-import { createNewCars } from "./createNewCars.js";
+import { generateNewCars } from "./generateNewCars.js";
 
 let addCarToPage = function (e) {
   e.preventDefault();
   let name = createCarForm.elements["carName"].value;
   let color = createCarForm.elements["carColor"].value;
-  addCar(name, color);
-  let page = +document.querySelector(".page-number").textContent;
+  if (name) {
+    addCar(name, color);
+  } else {
+    addCar(...generateNewCars(1)[0]);
+  }
 
+  let page = +document.querySelector(".page-number").textContent;
   renderGarageCars(page, 7);
 };
 let addCar = async function (name, color) {
@@ -37,8 +41,8 @@ let updateCar = async function (e) {
   renderGarageCars(page, 7);
 };
 
-let generateCars = function () {
-  let newCars = createNewCars();
+let generateCars = async function () {
+  let newCars = generateNewCars(20);
   newCars.forEach((el) => {
     addCar(...el);
   });

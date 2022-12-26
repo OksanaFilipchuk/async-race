@@ -9,16 +9,19 @@ export let renderGarageCars = async function (page, limit) {
   );
   let json = await response.json();
   let totalCount = response.headers.get("x-total-count");
-  if (+totalCount === (page - 1) * limit) {
+
+  if (+totalCount === (page - 1) * limit && +totalCount != 0) {
     await renderGarageCars(page - 1, 7);
     return;
+  } else {
+    changePagination(page, totalCount, limit);
   }
-  changePagination(page, totalCount, limit);
   document.querySelector(".page-number").innerHTML = page;
-  document.querySelector(".garage-header").innerHTML = `Garage(${totalCount})`;
-  json.forEach((el) => {
+  json.forEach(async (el) => {
     showGarageCar(el);
   });
+
+  document.querySelector(".garage-header").innerHTML = `Garage(${totalCount})`;
 };
 
 function showGarageCar(element) {
@@ -41,11 +44,15 @@ function showGarageCar(element) {
   let stopButton = document.createElement("button");
   stopButton.textContent = "Stop";
   stopButton.className = "stop-button";
+  var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.classList.add("svgClass");
+  svg.innerHTML = carSvg(element.color);
+  svg.setAttribute("viewBox", "0 0 64 64");
   carBlock.appendChild(selectButton);
   carBlock.appendChild(removeButton);
   carBlock.appendChild(goButton);
   carBlock.appendChild(stopButton);
-  carBlock.innerHTML = carBlock.innerHTML + carSvg(element.color);
+  carBlock.appendChild(svg);
   document.querySelector(".cars-wrapper").appendChild(carBlock);
 }
 renderGarageCars(1, 7);

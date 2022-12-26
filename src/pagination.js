@@ -1,4 +1,5 @@
 import { renderGarageCars } from "./renderGarageCars.js";
+
 let prevButton = document.querySelector("#prev-button");
 let nextButton = document.querySelector("#next-button");
 prevButton.addEventListener("click", goToPrevPage);
@@ -12,14 +13,6 @@ function goToNextPage() {
   renderGarageCars(page + 1, 7);
 }
 export function changePagination(page, totalCount, limit) {
-  if (page === 1) {
-    prevButton.disabled = true;
-  } else {
-    prevButton.disabled = false;
-  }
-  if (totalCount - page * limit > 0) {
-    nextButton.disabled = false;
-  } else {
-    nextButton.disabled = true;
-  }
+  prevButton.disabled = page === 1 ? true : false;
+  nextButton.disabled = totalCount - page * limit > 0 ? false : true;
 }

@@ -7,6 +7,7 @@ function renderPageElements() {
   garageButton.textContent = "To Garage";
   let winnerButton = document.createElement("button");
   winnerButton.textContent = "To Winner";
+  winnerButton.className = "to-winner";
   winnerButton.addEventListener("click", switchToWinner);
   header.appendChild(garageButton);
   header.appendChild(winnerButton);
@@ -16,7 +17,7 @@ function renderPageElements() {
     <div class = "garage-block-buttons">
       <form class = "garage-block-create-car">
         <input type="color" id = "carColor" name = "carColor">
-        <input type="text" id = "carName" name = "carName" required>
+        <input type="text" id = "carName" name = "carName">
         <input class = "createButton" type = "submit" value = "Create" >
       </form>
       <form class = "garage-block-update-car">
@@ -33,24 +34,27 @@ function renderPageElements() {
     <p class = "garage-header">Garage</p>`;
   let carsWrapper = document.createElement("div");
   carsWrapper.className = "cars-wrapper";
-  let winnerBlock = document.createElement("div");
-  winnerBlock.className = "winners-block";
-  winnerBlock.innerHTML = `<p class = "winners-count">Winners()</p>
+  let winnersBlock = document.createElement("div");
+  winnersBlock.className = "winners-block";
+  winnersBlock.innerHTML = `<p class = "winners-count">Winners()</p>
   <table class = "winners-table">
-    <tr>
-      <th>№</th>
-      <th>Car</th>
-      <th>Name</th>
-      <th>Wins</th>
-      <th>Best time(sec)</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>Car</th>
+        <th>Name</th>
+        <th>Wins</th>
+        <th>Best time(sec)</th>
+      </tr>
+    </thead>    
+    <tbody class = ".tbody"></tbody>
   </table>`;
   let container = document.createElement("div");
   container.className = "container";
   document.body.prepend(container);
   container.appendChild(header);
   container.appendChild(garageBlock);
-  container.appendChild(winnerBlock);
+  container.appendChild(winnersBlock);
   garageBlock.appendChild(carsWrapper);
   let prevButton = document.createElement("button");
   prevButton.id = "prev-button";
@@ -60,10 +64,23 @@ function renderPageElements() {
   nextButton.textContent = "Next";
   let pageNumber = document.createElement("span");
   pageNumber.className = "page-number";
-  pageNumber.textContent = 1;
+  pageNumber.textContent = "1";
   garageBlock.appendChild(prevButton);
   garageBlock.appendChild(pageNumber);
   garageBlock.appendChild(nextButton);
+
+  let prevButtonWinners = document.createElement("button");
+  prevButtonWinners.id = "prev-button-winners";
+  prevButtonWinners.textContent = "Prev";
+  let nextButtonWinners = document.createElement("button");
+  nextButtonWinners.id = "next-button-winners";
+  nextButtonWinners.textContent = "Next";
+  let winnersPageNumber = document.createElement("span");
+  winnersPageNumber.className = "winners-page-number";
+  winnersPageNumber.textContent = "1";
+  winnersBlock.appendChild(prevButtonWinners);
+  winnersBlock.appendChild(winnersPageNumber);
+  winnersBlock.appendChild(nextButtonWinners);
 }
 
 renderPageElements();

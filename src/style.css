@@ -13,15 +13,33 @@ button:disabled {
 }
 .svgClass {
     display: block;
+    position: relative;
     width: 65px;
     margin-bottom: -14px;
+}
+.svgClass-animated {
+    animation: 3s linear 1s drive forwards;
+}
+
+@keyframes drive {
+    from {
+        left: 0;
+
+    }
+    to{
+        left: 90%;
+    }
 }
 
 .car-block {
     padding: 0;
-    border: solid red;
-    border-width: 0 0 3px 0;
+    border: solid rgb(46 45 45);
+    border-width: 0 0 5px 0;
     margin-bottom: 20px;
+    background-image: url(./4211321-200.png);
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: 90% 26px;
 }
 
 .car-name {
