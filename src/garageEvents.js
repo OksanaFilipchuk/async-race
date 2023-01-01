@@ -3,6 +3,7 @@ import { generateNewCars } from "./generateNewCars.js";
 
 let addCarToPage = function (e) {
   e.preventDefault();
+  let createCarForm = document.querySelector(".garage-block-create-car");
   let name = createCarForm.elements["carName"].value;
   let color = createCarForm.elements["carColor"].value;
   if (name) {
@@ -10,7 +11,6 @@ let addCarToPage = function (e) {
   } else {
     addCar(...generateNewCars(1)[0]);
   }
-
   let page = +document.querySelector(".page-number").textContent;
   renderGarageCars(page, 7);
 };
@@ -28,6 +28,7 @@ let addCar = async function (name, color) {
 
 let updateCar = async function (e) {
   e.preventDefault();
+  let updateCarForm = document.querySelector(".garage-block-update-car");
   let doc = {
     name: updateCarForm.elements["updateName"].value,
     color: updateCarForm.elements["updateColor"].value,
@@ -49,10 +50,4 @@ let generateCars = async function () {
   let page = +document.querySelector(".page-number").textContent;
   renderGarageCars(page, 7);
 };
-
-let createCarForm = document.querySelector(".garage-block-create-car");
-createCarForm.addEventListener("submit", addCarToPage);
-let updateCarForm = document.querySelector(".garage-block-update-car");
-updateCarForm.addEventListener("submit", updateCar);
-let generateButton = document.querySelector("#generate-button");
-generateButton.addEventListener("click", generateCars);
+export { generateCars, updateCar, addCar, addCarToPage };

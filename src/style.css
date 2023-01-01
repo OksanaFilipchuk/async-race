@@ -1,15 +1,51 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    /* padding: 0; */
+}
+body {
+    background-color: beige;
 }
 button {
     cursor: pointer;
-    margin: 0 5px;
+    margin: 0 5px 0 0;
+    background-color: rgb(126, 201, 173);
+    color: rgb(0, 0, 0, 0.8);
+    transition: ease-in-out 200ms;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 4px 15px;
 }
+header button {
+    padding: 10px 65px;
+    margin-bottom: 15px;
+    background-color: rgb(16, 16, 17);
+    color: white;
+    font-size: 18px;
+}
+form {
+    margin-bottom: 5px;
+}
+input {
+    height: 25px;
+}
+button:hover{
+    background-color: rgb(160, 212, 193);
+    border: 1px solid grey
+}
+
 button:disabled {
     cursor: not-allowed;
+    border: 1px solid grey;
+    color: grey
 }
 .container {
     padding: 10px;
+}
+.garage-header {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 0;
 }
 .svgClass {
     display: block;
@@ -74,16 +110,19 @@ td,th {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgb(183 52 52 / 100%);
+    background-color: rgb(162 32 48);
     border-radius: 10px;
+    box-shadow: 5px 5px 5px;
+    z-index: 10;
 }
 .winner-pop-up-visible {
     display: block;
 }
-.winner-pop-up-content{
+.winner-pop-up-content {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 

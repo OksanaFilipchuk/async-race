@@ -1,7 +1,7 @@
 import { renderGarageCars } from "./renderGarageCars.js";
 import { renderWinnerCars } from "./renderWinnerCars.js";
 
-export async function carHandler(e) {
+export async function carBlockEvents(e) {
   e.preventDefault();
   let id = e.currentTarget.id;
 
@@ -25,15 +25,3 @@ export async function carHandler(e) {
     document.querySelector(".garage-block-update-car").id = this.id;
   }
 }
-// (async () => {
-//   try {
-//     for (let i = 2300; i < 2400; i++) {
-//       await fetch("http://localhost:3000/garage" + "/" + i, {
-//         method: "Delete",
-//         headers: { "Content-type": "application/json" },
-//       });
-//     }
-//   } catch (e) {
-//     return e;
-//   }
-// })();

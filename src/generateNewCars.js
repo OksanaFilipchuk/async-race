@@ -10,24 +10,15 @@ let carsBrands = [
   "Volvo",
   "Peugeot",
 ];
-
 let carsModels = {
-  Volkswagen: [
-    "Passat",
-    "Polo",
-    "Getta",
-    "Golf",
-    "Tauran",
-    "Tiguan",
-    "Transporter",
-  ],
+  Volkswagen: ["Passat", "Polo", "Getta", "Golf", "Tauran", "Tiguan"],
   Kia: ["Sorento", "Ceeds", "Sportage", "Carnival"],
   Nissan: ["Leaf", "Rogue", "Juke", "Qashqai"],
   BMW: ["X5", "X7", "X6", "X3"],
   Audi: ["A3", "A4", "A6", "q6", "tt"],
   Volvo: ["v40", "s60", "XC40", "XC90"],
   Mazda: ["3", "5", "CX-5", "6"],
-  Ford: ["Fiesta", "Mondeo", "Focus", "MUSTANG MACH 1"],
+  Ford: ["Fiesta", "Mondeo", "Focus", "MUSTANG"],
   Toyota: ["Camry", "Rav4", "Highlander", "Hilux"],
   Peugeot: ["307", "207", "5008", "3008"],
 };
