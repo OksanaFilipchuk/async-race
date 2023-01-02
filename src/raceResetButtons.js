@@ -22,10 +22,15 @@ function startRace() {
 }
 
 function resetRace() {
-  [...document.querySelectorAll(".svgClass")].forEach((el) => {
-    stopCar(el.parentNode.id);
+  let cars = [...document.querySelectorAll(".svgClass")];
+  cars.forEach((el, index) => {
+    if (index == cars.length - 1) {
+      stopCar(el.parentNode.id);
+      setButtonDisabledFalse();
+    } else {
+      stopCar(el.parentNode.id);
+    }
   });
-  setButtonDisabledFalse();
 }
 
 function showWinner(time, id) {

@@ -1,11 +1,15 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    /* padding: 0; */
 }
+
 body {
-    background-color: beige;
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 84%), rgb(244 242 242 / 62%)), url(/async-race-api/src/folder/race.jpg);
+    background-size: cover;
+    background-repeat: no-repeat no-repeat;
+    min-height: 100vh;
 }
+
 button {
     cursor: pointer;
     margin: 0 5px 0 0;
@@ -16,6 +20,25 @@ button {
     border-radius: 3px;
     padding: 4px 15px;
 }
+
+header {
+    display: flex;
+}
+
+h1 {
+    display: inline-block;
+    flex-grow: 0.8;
+    text-align: center;
+    font-size: 40px;
+    color:#000000    ;
+    position: relative;
+    transition: 250ms;
+}
+
+.h1-highlight {
+    text-shadow: #fbef03 0 0 10px;
+}
+
 header button {
     padding: 10px 65px;
     margin-bottom: 15px;
@@ -23,9 +46,11 @@ header button {
     color: white;
     font-size: 18px;
 }
+
 form {
     margin-bottom: 5px;
 }
+
 input {
     height: 25px;
 }
@@ -39,24 +64,29 @@ button:disabled {
     border: 1px solid grey;
     color: grey
 }
+
 .container {
     padding: 10px;
 }
+
 .garage-header {
     font-size: 18px;
     font-weight: 700;
     margin: 10px 0;
 }
+
 .svgClass {
     display: block;
     position: relative;
     width: 65px;
     margin-bottom: -14px;
 }
+
 .svgClass-animated {
     animation: linear drive;
     animation-fill-mode: forwards;
 }
+
 .paused{
     -webkit-animation-play-state:paused;
     -moz-animation-play-state:paused;
@@ -90,6 +120,7 @@ button:disabled {
     width: 175px;
     margin: 0;
 }
+
 td,th {
     width: 100px;
     text-align: center;
@@ -98,6 +129,7 @@ td,th {
 .winners-block {
     display: none;
 }
+
 .page-number {
     margin: 0 10px;
 }
@@ -115,9 +147,11 @@ td,th {
     box-shadow: 5px 5px 5px;
     z-index: 10;
 }
+
 .winner-pop-up-visible {
     display: block;
 }
+
 .winner-pop-up-content {
     height: 100%;
     display: flex;

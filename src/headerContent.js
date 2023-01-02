@@ -8,6 +8,11 @@ let winnerButton = document.createElement("button");
 winnerButton.textContent = "To Winner";
 winnerButton.className = "to-winner";
 winnerButton.addEventListener("click", switchToWinner);
+let h1 = document.createElement("h1");
+h1.textContent = "ASYNC RACE";
+setInterval(() => {
+  h1.classList.toggle("h1-highlight");
+}, 2000);
 let winnerPopUp = document.createElement("div");
 winnerPopUp.className = "winner-pop-up";
 winnerPopUp.innerHTML = `
@@ -18,4 +23,5 @@ winnerPopUp.innerHTML = `
     </div>`;
 header.appendChild(garageButton);
 header.appendChild(winnerButton);
+header.appendChild(h1);
 header.appendChild(winnerPopUp);
