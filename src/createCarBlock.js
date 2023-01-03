@@ -7,8 +7,10 @@ export function createCarBlock(element) {
   carBlock.addEventListener("click", carBlockEvents);
   carBlock.id = element.id;
   carBlock.color = element.color;
-  carBlock.innerHTML = `
-      <p class = "car-name">${element.name}</p>`;
+  let carName = document.createElement("p");
+  carName.className = "car-name";
+  carName.innerHTML = element.name;
+  carBlock.appendChild(carName);
   let selectButton = document.createElement("button");
   selectButton.textContent = "Select";
   selectButton.className = "select-button";

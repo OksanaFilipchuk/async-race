@@ -1,12 +1,12 @@
 export let winnersBlock = document.createElement("div");
 winnersBlock.className = "winners-block";
-winnersBlock.innerHTML = `<p class = "winners-count">Winners()</p>
+winnersBlock.innerHTML = `<p class = "winners-count">Winners(0)</p>
 <table class = "winners-table">
   <thead>
     <tr>
       <th>№</th>
       <th>Car</th>
-      <th>Name</th>
+      <th class = "thName">Name</th>
       <th>Wins</th>
       <th>Best time(sec)</th>
     </tr>

@@ -18,7 +18,7 @@ garageBlock.innerHTML = `
     <button class = "garage-block-button" id = "reset-button">Reset</button>
     <button class = "garage-block-button" id = "generate-button">Generate</button>
   </div>
-  <p class = "garage-header">Garage</p>`;
+  <p class = "garage-count">Garage</p>`;
 let carsWrapper = document.createElement("div");
 carsWrapper.className = "cars-wrapper";
 garageBlock.appendChild(carsWrapper);

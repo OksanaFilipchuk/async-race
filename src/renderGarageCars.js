@@ -10,7 +10,7 @@ export let renderGarageCars = async function (page, limit) {
   let totalCount = response.headers.get("x-total-count");
 
   if (+totalCount === (page - 1) * limit && +totalCount != 0) {
-    await renderGarageCars(page - 1, 7);
+    await renderGarageCars(page - 1, limit);
     return;
   } else {
     changePagination(page, totalCount, limit);
@@ -20,7 +20,7 @@ export let renderGarageCars = async function (page, limit) {
     createCarBlock(el);
   });
 
-  document.querySelector(".garage-header").innerHTML = `Garage(${totalCount})`;
+  document.querySelector(".garage-count").innerHTML = `Garage(${totalCount})`;
 };
 
 renderGarageCars(1, 7);

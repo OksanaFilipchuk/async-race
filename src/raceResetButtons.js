@@ -3,6 +3,40 @@ import {
   setButtonDisabledTrue,
 } from "./changeButtonDisabled.js";
 import { goCar, stopCar } from "./goStopButtons.js";
+import { renderWinnerCars } from "./renderWinnerCars.js";
+
+async function createWinner([id, time]) {
+  let responseGet = await fetch(`http://localhost:3000/winners/${id}`);
+  let jsonGet = await responseGet.json();
+
+  if (responseGet.status === 200) {
+    let docPut = {
+      wins: jsonGet.wins + 1,
+      time: Math.min(time, jsonGet.time),
+    };
+    let responsePut = await fetch(`http://localhost:3000/winners/${id}`, {
+      method: "Put",
+      body: JSON.stringify(docPut),
+      headers: { "Content-Type": "application/json" },
+    });
+    let jsonPut = await responsePut.json();
+    return jsonPut;
+  } else {
+    let docPost = {
+      id: id,
+      wins: 1,
+      time: time,
+    };
+    let responsePost = await fetch(`http://localhost:3000/winners`, {
+      method: "Post",
+      body: JSON.stringify(docPost),
+      headers: { "Content-Type": "application/json" },
+    });
+    let jsonPost = await responsePost.json();
+    console.log(responsePost);
+    return jsonPost;
+  }
+}
 
 function startRace() {
   setButtonDisabledTrue();
@@ -12,9 +46,15 @@ function startRace() {
     arr.push(goCar(el.parentNode.id));
   });
   Promise.any(arr)
-    .then((id) => {
-      let timeEnd = new Date();
-      showWinner(timeEnd - timeStart, id);
+    .then(([id, time]) => {
+      time = (time / 1000).toFixed(2);
+      showWinner(time, id);
+      return [id, time];
+    })
+    .then(createWinner)
+    .then(() => {
+      let page = document.querySelector(".winners-page-number").textContent;
+      renderWinnerCars(page, 10);
     })
     .then(() => {
       document.querySelector("#reset-button").disabled = false;
@@ -40,9 +80,7 @@ function showWinner(time, id) {
   document.querySelector(
     ".winner-name"
   ).textContent = `The winner is ${winnerName}`;
-  document.querySelector(".winner-time").textContent = `Time: ${
-    time / 1000
-  } sec`;
+  document.querySelector(".winner-time").textContent = `Time: ${time} sec`;
   setTimeout(() => {
     popUp.classList.remove("winner-pop-up-visible");
   }, 2000);

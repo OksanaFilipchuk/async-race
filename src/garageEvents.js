@@ -43,7 +43,7 @@ let updateCar = async function (e) {
 };
 
 let generateCars = async function () {
-  let newCars = generateNewCars(20);
+  let newCars = generateNewCars(100);
   newCars.forEach((el) => {
     addCar(...el);
   });

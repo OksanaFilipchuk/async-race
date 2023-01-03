@@ -6,16 +6,16 @@ function goCar(id) {
     start(id)
       .then((time) => {
         addAnimation(id, time);
-        return id;
+        return [id, time];
       })
       .then(drive)
-      .then((status) => {
+      .then(([status, time, id]) => {
         if (status == 500) {
           pauseAnimation(id);
           rej(id);
         } else if (status == 200) {
           stop(id);
-          res(id);
+          res([id, time]);
         }
       })
       .catch((e) => {
