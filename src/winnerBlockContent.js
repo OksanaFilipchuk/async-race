@@ -16,6 +16,7 @@ winnersBlock.innerHTML = `<p class = "winners-count">Winners(0)</p>
 let prevButtonWinners = document.createElement("button");
 prevButtonWinners.id = "prev-button-winners";
 prevButtonWinners.textContent = "Prev";
+prevButtonWinners.disabled = true;
 let nextButtonWinners = document.createElement("button");
 nextButtonWinners.id = "next-button-winners";
 nextButtonWinners.textContent = "Next";
