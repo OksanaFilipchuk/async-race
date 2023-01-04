@@ -26,7 +26,7 @@ function goCar(id) {
 
 function stopCar(id) {
   pauseAnimation(id);
-  stop(id).then(() => setTimeout(stopAnimation(id), 1000));
+  stop(id).then(stopAnimation(id));
 }
 
 export { goCar, stopCar };

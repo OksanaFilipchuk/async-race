@@ -33,14 +33,12 @@ async function createWinner([id, time]) {
       headers: { "Content-Type": "application/json" },
     });
     let jsonPost = await responsePost.json();
-    console.log(responsePost);
     return jsonPost;
   }
 }
 
 function startRace() {
   setButtonDisabledTrue();
-  let timeStart = new Date();
   let arr = [];
   [...document.querySelectorAll(".svgClass")].forEach((el) => {
     arr.push(goCar(el.parentNode.id));
@@ -56,6 +54,7 @@ function startRace() {
       let page = document.querySelector(".winners-page-number").textContent;
       renderWinnerCars(page, 10);
     })
+    .catch((e) => console.log(e.message))
     .then(() => {
       document.querySelector("#reset-button").disabled = false;
     });
@@ -64,13 +63,9 @@ function startRace() {
 function resetRace() {
   let cars = [...document.querySelectorAll(".svgClass")];
   cars.forEach((el, index) => {
-    if (index == cars.length - 1) {
-      stopCar(el.parentNode.id);
-      setButtonDisabledFalse();
-    } else {
-      stopCar(el.parentNode.id);
-    }
+    stopCar(el.parentNode.id);
   });
+  setButtonDisabledFalse();
 }
 
 function showWinner(time, id) {
@@ -83,6 +78,7 @@ function showWinner(time, id) {
   document.querySelector(".winner-time").textContent = `Time: ${time} sec`;
   setTimeout(() => {
     popUp.classList.remove("winner-pop-up-visible");
-  }, 2000);
+  }, 1000);
 }
+
 export { resetRace, startRace };

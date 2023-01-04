@@ -10,14 +10,11 @@ export async function carBlockEvents(e) {
       method: "Delete",
       headers: { "Content-type": "application/json" },
     });
-    if (
-      [...document.querySelectorAll("tr")].some((el) => el.id == "win" + id)
-    ) {
-      await fetch("http://localhost:3000/winners" + "/" + id, {
-        method: "Delete",
-        headers: { "Content-type": "application/json" },
-      });
-    }
+    await fetch("http://localhost:3000/winners" + "/" + id, {
+      method: "Delete",
+      headers: { "Content-type": "application/json" },
+    }).catch((e) => console.log(e.message));
+    // }
     let page = +document.querySelector(".page-number").textContent;
     let winPage = +document.querySelector(".winners-page-number").textContent;
     renderGarageCars(page, 7);

@@ -7,8 +7,8 @@ winnersBlock.innerHTML = `<p class = "winners-count">Winners(0)</p>
       <th>№</th>
       <th>Car</th>
       <th class = "thName">Name</th>
-      <th>Wins</th>
-      <th>Best time(sec)</th>
+      <th>Wins <span class = "ascending-wins"> 🠙 </span><span class = "descending-wins"> 🠛 </span></th>
+      <th class = thTime>Best time(sec)<span class = "ascending-time"> 🠙 </span><span class = "descending-time"> 🠛 </span></th>
     </tr>
   </thead>    
   <tbody class = ".tbody"></tbody>

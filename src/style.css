@@ -132,8 +132,9 @@ td,th {
     text-align: center;
 }
 
-.thName{
-    width: 200px;
+.thName,
+.thTime{
+    width: 250px;
 }
 
 .winners-block {
@@ -198,4 +199,15 @@ td,th {
         font-size: 12px;
     }
     
+}
+
+.active-sort {
+    color:aqua
+}
+
+.ascending-wins,
+.descending-wins,
+.ascending-time,
+.descending-time {
+    color: rgb(29, 28, 28);
 }

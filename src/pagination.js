@@ -1,14 +1,16 @@
 import { renderGarageCars } from "./renderGarageCars.js";
 import { renderWinnerCars } from "./renderWinnerCars.js";
 
-let prevButton = document.querySelector("#prev-button");
-let nextButton = document.querySelector("#next-button");
-prevButton.addEventListener("click", goToPrevPage);
-nextButton.addEventListener("click", goToNextPage);
+let prevButtonGarage = document.querySelector("#prev-button-garage");
+let nextButtonGarage = document.querySelector("#next-button-garage");
+prevButtonGarage.addEventListener("click", goToPrevPage);
+nextButtonGarage.addEventListener("click", goToNextPage);
 
 function goToPrevPage() {
   let page = +document.querySelector(".page-number").textContent;
-  renderGarageCars(page - 1, 7);
+  if (page != 1) {
+    renderGarageCars(page - 1, 7);
+  }
 }
 
 function goToNextPage() {
@@ -23,7 +25,9 @@ nextButtonWin.addEventListener("click", goToNextPageWin);
 
 function goToPrevPageWin() {
   let page = +document.querySelector(".winners-page-number").textContent;
-  renderWinnerCars(page - 1, 10);
+  if (page != 1) {
+    renderWinnerCars(page - 1, 10);
+  }
 }
 
 function goToNextPageWin() {
@@ -32,8 +36,8 @@ function goToNextPageWin() {
 }
 
 export function changePagination(page, totalCount, limit) {
-  prevButton.disabled = page === 1 ? true : false;
-  nextButton.disabled = totalCount - page * limit > 0 ? false : true;
+  prevButtonGarage.disabled = page === 1 ? true : false;
+  nextButtonGarage.disabled = totalCount - page * limit > 0 ? false : true;
 }
 export function changePaginationWin(page, totalCount, limit) {
   prevButtonWin.disabled = page === 1 ? true : false;
