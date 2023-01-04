@@ -1,23 +1,21 @@
+let buttons = [...document.querySelectorAll("button")];
+
+function excludePaginationButtons(el) {
+  return (
+    el != document.querySelector("#prev-button-garage") &&
+    el != document.querySelector("#next-button-garage") &&
+    el != document.querySelector("#prev-button-winners") &&
+    el != document.querySelector("#next-button-winners")
+  );
+}
 function setButtonDisabledTrue() {
-  [...document.querySelectorAll("button")]
-    .filter(
-      (el) =>
-        el != document.querySelector("#prev-button") &&
-        el != document.querySelector("#next-button")
-    )
-    .forEach((el) => {
-      el.disabled = true;
-    });
+  buttons.filter(excludePaginationButtons).forEach((el) => {
+    el.disabled = true;
+  });
 }
 function setButtonDisabledFalse() {
-  [...document.querySelectorAll("button")]
-    .filter(
-      (el) =>
-        el != document.querySelector("#prev-button") &&
-        el != document.querySelector("#next-button")
-    )
-    .forEach((el) => {
-      el.disabled = false;
-    });
+  buttons.filter(excludePaginationButtons).forEach((el) => {
+    el.disabled = false;
+  });
 }
 export { setButtonDisabledFalse, setButtonDisabledTrue };

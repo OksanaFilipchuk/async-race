@@ -17,7 +17,7 @@ async function stop(id) {
     }
   );
 }
-function drive([id, time]) {
+async function drive([id, time]) {
   return fetch(`http://localhost:3000/engine?id=${id}&status=drive`, {
     method: "PATCH",
   }).then((response) => [response.status, time, id]);

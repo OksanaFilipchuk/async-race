@@ -14,6 +14,7 @@ let addCarToPage = function (e) {
   let page = +document.querySelector(".page-number").textContent;
   renderGarageCars(page, 7);
 };
+
 let addCar = async function (name, color) {
   let doc = {
     name: name,
