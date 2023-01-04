@@ -17,7 +17,6 @@ let winnerPopUp = document.createElement("div");
 winnerPopUp.className = "winner-pop-up";
 winnerPopUp.innerHTML = `
     <div class = "winner-pop-up-content">
-      <img class = "winner-img"src ="./src/winner.png" alt="winner"/>
       <p class = "winner-name"></p>
       <p class = "winner-time">Time: </p>
     </div>`;

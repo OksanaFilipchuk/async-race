@@ -1,7 +1,7 @@
 import { addCarToPage, updateCar, generateCars } from "./garageEvents.js";
 import { startRace, resetRace } from "./raceResetButtons.js";
 import { goCar, stopCar } from "./goStopButtons.js";
-import { sort } from "./renderWinnerCars.js";
+import { sort } from "./sortFunction.js";
 
 let createCarButton = document.querySelector(".garage-block-create-car");
 let updateCarButton = document.querySelector(".garage-block-update-car");
