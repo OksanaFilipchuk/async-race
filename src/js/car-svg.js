@@ -1,5 +1,4 @@
-export let carSvg = (color) => {
-  return `
+export const carSvg = (color) => `
 <g  data-name="Fill Outline">
   <path
     id="svgInternalID"
@@ -43,4 +42,3 @@ export let carSvg = (color) => {
   />
 </g>
 `;
-};

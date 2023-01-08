@@ -1,4 +1,4 @@
-let carsBrands = [
+const carsBrands = [
   "Volkswagen",
   "Kia",
   "Nissan",
@@ -10,7 +10,7 @@ let carsBrands = [
   "Volvo",
   "Peugeot",
 ];
-let carsModels = {
+const carsModels = {
   Volkswagen: ["Passat", "Polo", "Getta", "Golf", "Tauran", "Tiguan"],
   Kia: ["Sorento", "Ceeds", "Sportage", "Carnival"],
   Nissan: ["Leaf", "Rogue", "Juke", "Qashqai"],
@@ -24,19 +24,19 @@ let carsModels = {
 };
 
 export function generateNewCars(n) {
-  let arr = [];
+  const arr = [];
   let i = 0;
   while (i < n) {
-    let brandNumber = Math.floor(Math.random() * carsBrands.length);
-    let carBrand = carsBrands[brandNumber];
-    let modelNumber = Math.floor(Math.random() * carsModels[carBrand].length);
-    let carModel = carsModels[carBrand][modelNumber];
-    let r = Math.floor(Math.random() * 256);
-    let g = Math.floor(Math.random() * 256);
-    let b = Math.floor(Math.random() * 256);
-    let color = `rgb(${r}, ${g}, ${b})`;
-    arr.push([carBrand + " " + carModel, color]);
-    i++;
+    const brandNumber = Math.floor(Math.random() * carsBrands.length);
+    const carBrand = carsBrands[brandNumber];
+    const modelNumber = Math.floor(Math.random() * carsModels[carBrand].length);
+    const carModel = carsModels[carBrand][modelNumber];
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const color = `rgb(${r}, ${g}, ${b})`;
+    arr.push([`${carBrand} ${carModel}`, color]);
+    i += 1;
   }
   return arr;
 }

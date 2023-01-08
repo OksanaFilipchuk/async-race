@@ -1,25 +1,24 @@
-import { addAnimation, pauseAnimation, stopAnimation } from "./carAnimation.js";
-import { start, stop, drive } from "./changeCarStateFunctions.js";
+import { addAnimation, pauseAnimation, stopAnimation } from "./carAnimation";
+import { start, stop, drive } from "./carStateChange";
 
 function goCar(id) {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     start(id)
       .then((time) => {
         addAnimation(id, time);
         return [id, time];
       })
       .then(drive)
-      .then(([status, time, id]) => {
-        if (status == 500) {
+      .then(([status, time]) => {
+        if (status === 500) {
           pauseAnimation(id);
-          rej(id);
-        } else if (status == 200) {
+        } else if (status === 200) {
           stop(id);
           res([id, time]);
         }
       })
-      .catch((e) => {
-        console.log(e.message);
+      .catch((err) => {
+        throw err;
       });
   });
 }

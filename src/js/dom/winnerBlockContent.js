@@ -1,4 +1,4 @@
-export let winnersBlock = document.createElement("div");
+export const winnersBlock = document.createElement("div");
 winnersBlock.className = "winners-block";
 winnersBlock.innerHTML = `<p class = "winners-count">Winners(0)</p>
 <table class = "winners-table">
@@ -13,14 +13,14 @@ winnersBlock.innerHTML = `<p class = "winners-count">Winners(0)</p>
   </thead>    
   <tbody class = ".tbody"></tbody>
 </table>`;
-let prevButtonWinners = document.createElement("button");
+const prevButtonWinners = document.createElement("button");
 prevButtonWinners.id = "prev-button-winners";
 prevButtonWinners.textContent = "Prev";
 prevButtonWinners.disabled = true;
-let nextButtonWinners = document.createElement("button");
+const nextButtonWinners = document.createElement("button");
 nextButtonWinners.id = "next-button-winners";
 nextButtonWinners.textContent = "Next";
-let winnersPageNumber = document.createElement("span");
+const winnersPageNumber = document.createElement("span");
 winnersPageNumber.className = "winners-page-number";
 winnersPageNumber.textContent = "1";
 winnersBlock.appendChild(prevButtonWinners);

@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: linear-gradient(to bottom, rgb(0 0 0 / 84%), rgb(244 242 242 / 62%)), url(/async-race-api/src/folder/race.jpg);
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 84%), rgb(244 242 242 / 62%)), url(./images/race.jpg);
     background-size: cover;
     background-repeat: no-repeat no-repeat;
     min-height: 100vh;
@@ -136,7 +136,7 @@ button:disabled {
     border: solid  rgb(6, 6, 6, 0.9);
     border-width: 0 0 5px 0;
     margin-bottom: 20px;
-    background-image: url(./4211321-200.png);
+    background-image: url(./images/4211321-200.png);
     background-repeat: no-repeat;
     background-size: 50px;
     background-position: 90% 26px;
@@ -174,7 +174,7 @@ td,th {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(to left, rgb(255,255,255, 0.3),rgb(255,255,255, 0.3)), url(./view.jpg);
+    background: linear-gradient(to left, rgb(255,255,255, 0.3),rgb(255,255,255, 0.3)), url(./images/view.jpg);
     background-size: cover;
     background-position-x: -125px;
     border-radius: 10px;
@@ -236,4 +236,11 @@ td,th {
 .ascending-time,
 .descending-time {
     color: rgb(29, 28, 28);
+    cursor: pointer;
+}
+.ascending-wins:hover,
+.descending-wins:hover,
+.ascending-time:hover,
+.descending-time:hover {
+    color: rgb(92, 91, 91);
 }

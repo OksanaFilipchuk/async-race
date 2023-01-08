@@ -1,4 +1,4 @@
-export let garageBlock = document.createElement("div");
+export const garageBlock = document.createElement("div");
 garageBlock.className = "garage-block";
 garageBlock.innerHTML = `
   <div class = "garage-block-buttons">
@@ -19,16 +19,16 @@ garageBlock.innerHTML = `
     <button class = "garage-block-button" id = "generate-button">Generate</button>
   </div>
   <p class = "garage-count">Garage</p>`;
-let carsWrapper = document.createElement("div");
+const carsWrapper = document.createElement("div");
 carsWrapper.className = "cars-wrapper";
 garageBlock.appendChild(carsWrapper);
-let prevButton = document.createElement("button");
+const prevButton = document.createElement("button");
 prevButton.id = "prev-button-garage";
 prevButton.textContent = "Prev";
-let nextButton = document.createElement("button");
+const nextButton = document.createElement("button");
 nextButton.id = "next-button-garage";
 nextButton.textContent = "Next";
-let pageNumber = document.createElement("span");
+const pageNumber = document.createElement("span");
 pageNumber.className = "page-number";
 pageNumber.textContent = "1";
 garageBlock.appendChild(prevButton);

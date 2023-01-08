@@ -1,19 +1,19 @@
-import { switchToGarage, switchToWinner } from "./headerButtonsEvents.js";
+import { switchToGarage, switchToWinner } from "../headerButtonsEvents";
 
-export let header = document.createElement("header");
-let garageButton = document.createElement("button");
+export const header = document.createElement("header");
+const garageButton = document.createElement("button");
 garageButton.addEventListener("click", switchToGarage);
 garageButton.textContent = "To Garage";
-let winnerButton = document.createElement("button");
+const winnerButton = document.createElement("button");
 winnerButton.textContent = "To Winner";
 winnerButton.className = "to-winner";
 winnerButton.addEventListener("click", switchToWinner);
-let h1 = document.createElement("h1");
+const h1 = document.createElement("h1");
 h1.textContent = "ASYNC RACE";
 setInterval(() => {
   h1.classList.toggle("h1-highlight");
 }, 2000);
-let winnerPopUp = document.createElement("div");
+const winnerPopUp = document.createElement("div");
 winnerPopUp.className = "winner-pop-up";
 winnerPopUp.innerHTML = `
     <div class = "winner-pop-up-content">

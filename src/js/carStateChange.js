@@ -1,25 +1,22 @@
 async function start(id) {
-  let response = await fetch(
+  const response = await fetch(
     `http://localhost:3000/engine?id=${id}&status=started`,
     {
       method: "PATCH",
     }
   );
-  let json = await response.json();
-  let time = (await json.distance) / (await json.velocity);
+  const json = await response.json();
+  const time = (await json.distance) / (await json.velocity);
   return time;
 }
 async function stop(id) {
-  let response = await fetch(
-    `http://localhost:3000/engine?id=${id}&status=stopped`,
-    {
-      method: "PATCH",
-    }
-  );
+  await fetch(`http://localhost:3000/engine?id=${id}&status=stopped`, {
+    method: "PATCH",
+  });
 }
 async function drive([id, time]) {
   return fetch(`http://localhost:3000/engine?id=${id}&status=drive`, {
     method: "PATCH",
-  }).then((response) => [response.status, time, id]);
+  }).then((response) => [response.status, time]);
 }
 export { start, stop, drive };
