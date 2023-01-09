@@ -1,3 +1,17 @@
+// import { getWinners, putWinner, postWinner } from "./requests/requests";
+
+// export async function createWinner([id, time]) {
+//   const winners = await getWinners();
+//   const isWinner = await winners.reduce((a, b) => a.id || b.id, false);
+//   const winnerTime = Math.min(time, await winners.time);
+
+//   if (await isWinner) {
+//     const wins = (await winners.wins) + 1;
+//     await putWinner(id, wins, winnerTime);
+//   } else {
+//     await postWinner(1, time);
+//   }
+// }
 export async function createWinner([id, time]) {
   const responseGet = await fetch(`http://localhost:3000/winners/${id}`);
   const jsonGet = await responseGet.json();

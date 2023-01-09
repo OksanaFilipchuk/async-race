@@ -1,5 +1,5 @@
 import { addAnimation, pauseAnimation, stopAnimation } from "./carAnimation";
-import { start, stop, drive } from "./carStateChange";
+import { start, stop, drive } from "../requests/carStateChange";
 
 function goCar(id) {
   return new Promise((res) => {
@@ -16,9 +16,6 @@ function goCar(id) {
           stop(id);
           res([id, time]);
         }
-      })
-      .catch((err) => {
-        throw err;
       });
   });
 }

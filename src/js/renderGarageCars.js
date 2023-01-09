@@ -6,6 +6,7 @@ export async function renderGarageCars(page, limit) {
     `http://localhost:3000/garage?_page=${page}&_limit=${limit}`
   );
   const json = await response.json();
+
   const totalCount = response.headers.get("x-total-count");
 
   if (+totalCount === (page - 1) * limit && +totalCount !== 0) {
@@ -19,11 +20,9 @@ export async function renderGarageCars(page, limit) {
   );
 
   document.querySelector(".page-number").innerHTML = page;
-  json.forEach(async (el) => {
-    createCarBlock(el);
+  json.forEach(async (elem) => {
+    createCarBlock(elem);
   });
 
   document.querySelector(".garage-count").innerHTML = `Garage(${totalCount})`;
 }
-
-// renderGarageCars(1, 7);

@@ -24,6 +24,13 @@ const carsModels = {
 };
 
 export function generateNewCars(n) {
+  const rgbToHex = (r, g, b) =>
+    `#${[r, g, b]
+      .map((x) => {
+        const hex = Number(x).toString(16);
+        return hex.length === 1 ? `0${hex}` : hex;
+      })
+      .join("")}`;
   const arr = [];
   let i = 0;
   while (i < n) {
@@ -34,7 +41,7 @@ export function generateNewCars(n) {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
-    const color = `rgb(${r}, ${g}, ${b})`;
+    const color = rgbToHex(r, g, b);
     arr.push([`${carBrand} ${carModel}`, color]);
     i += 1;
   }

@@ -1,5 +1,5 @@
 import { carSvg } from "../car-svg";
-import { carBlockEvents } from "../carBlockEvents";
+import { carBlockEvents } from "../events/carBlockEvents";
 
 export function createCarBlock(element) {
   const carBlock = document.createElement("div");

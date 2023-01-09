@@ -1,5 +1,5 @@
-import { renderGarageCars } from "./renderGarageCars";
-import { renderWinnerCars } from "./renderWinnerCars";
+import { renderGarageCars } from "../renderGarageCars";
+import { renderWinnerCars } from "../renderWinnerCars";
 
 function goToPrevPage() {
   const page = +document.querySelector(".page-number").textContent;

@@ -1,4 +1,4 @@
-import { switchToGarage, switchToWinner } from "../headerButtonsEvents";
+import { switchToGarage, switchToWinner } from "../events/headerButtonsEvents";
 
 export const header = document.createElement("header");
 const garageButton = document.createElement("button");

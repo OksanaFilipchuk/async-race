@@ -1,6 +1,6 @@
 import { addCarToPage, updateCar, generateCars } from "./garageEvents";
 import { startRace, resetRace } from "./buttonsRaceReset";
-import { sort } from "./sortFunction";
+import { sort } from "../sortFunction";
 import {
   goToNextPage,
   goToPrevPage,
