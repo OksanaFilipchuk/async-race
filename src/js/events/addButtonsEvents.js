@@ -7,6 +7,7 @@ import {
   goToNextPageWin,
   goToPrevPageWin,
 } from "./buttonsPaginationEvent";
+import { carBlockEvents } from "./carBlockEvents";
 
 export function addButtonsEvents() {
   const createCarButton = document.querySelector(".garage-block-create-car");
@@ -38,4 +39,8 @@ export function addButtonsEvents() {
   nextButtonWin.addEventListener("click", goToNextPageWin);
   prevButtonGarage.addEventListener("click", goToPrevPage);
   nextButtonGarage.addEventListener("click", goToNextPage);
+
+  // carBlockEvents
+  const carBlock = document.querySelectorAll(".car-block");
+  carBlock.forEach((el) => el.addEventListener("click", carBlockEvents));
 }

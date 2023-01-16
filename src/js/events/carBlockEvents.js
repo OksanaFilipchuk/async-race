@@ -1,4 +1,4 @@
-import { renderGarageCars } from "../renderGarageCars";
+import { createCarBlock } from "../dom/carBlockCreate";
 import { renderWinnerCars } from "../renderWinnerCars";
 import { goCar, stopCar } from "./buttonsGoStop";
 import {
@@ -22,16 +22,28 @@ export async function carBlockEvents(event) {
   }
 
   if (event.target.classList.contains("remove-button")) {
-    await garageCarDelete(id);
-    const winners = await getWinners();
-    const isWinner = await winners.reduce((a, b) => a.id || b.id, false);
-
-    if (await isWinner) {
-      await winnerDelete(id);
-    }
     const page = +document.querySelector(".page-number").textContent;
     const winPage = +document.querySelector(".winners-page-number").textContent;
-    renderGarageCars(page, limitGarage);
+    event.target.parentNode.remove();
+    const response = await fetch(
+      `http://localhost:3000/garage?_page=${page + 1}&_limit=${limitGarage}`
+    );
+    const json = await response.json();
+    if (json[0]) {
+      createCarBlock(json[0]);
+      document
+        .querySelectorAll(".car-block")
+        .forEach((el) => el.addEventListener("click", carBlockEvents));
+    }
+    document.querySelector(".garage-count").textContent -= 1;
+    await garageCarDelete(id);
+    const winners = await getWinners();
+    const isWinner = winners.reduce((a, b) => a.id || b.id, false);
+
+    if (isWinner) {
+      await winnerDelete(id);
+    }
+
     renderWinnerCars(winPage, limitWinners);
   }
   if (event.target.classList.contains("select-button")) {

@@ -1,22 +1,10 @@
-// import { getWinners, putWinner, postWinner } from "./requests/requests";
+import { SUCCESSS_RESPONSE_CODE } from "./defaultValue";
 
-// export async function createWinner([id, time]) {
-//   const winners = await getWinners();
-//   const isWinner = await winners.reduce((a, b) => a.id || b.id, false);
-//   const winnerTime = Math.min(time, await winners.time);
-
-//   if (await isWinner) {
-//     const wins = (await winners.wins) + 1;
-//     await putWinner(id, wins, winnerTime);
-//   } else {
-//     await postWinner(1, time);
-//   }
-// }
 export async function createWinner([id, time]) {
   const responseGet = await fetch(`http://localhost:3000/winners/${id}`);
   const jsonGet = await responseGet.json();
 
-  if (responseGet.status === 200) {
+  if (responseGet.status === SUCCESSS_RESPONSE_CODE) {
     const docPut = {
       wins: jsonGet.wins + 1,
       time: Math.min(time, jsonGet.time),

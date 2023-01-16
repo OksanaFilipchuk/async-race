@@ -1,10 +1,8 @@
 import { carSvg } from "../car-svg";
-import { carBlockEvents } from "../events/carBlockEvents";
 
 export function createCarBlock(element) {
   const carBlock = document.createElement("div");
   carBlock.className = "car-block";
-  carBlock.addEventListener("click", carBlockEvents);
   carBlock.id = element.id;
   carBlock.color = element.color;
   const carName = document.createElement("p");

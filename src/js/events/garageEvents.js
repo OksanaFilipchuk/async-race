@@ -1,20 +1,23 @@
 import { renderGarageCars } from "../renderGarageCars";
 import { generateNewCars } from "../carsGenerateNew";
 import { postCar, putCar } from "../requests/requests";
-import { limitGarage } from "../defaultValue";
+import { limitGarage, numberOfGeneratedCars } from "../defaultValue";
+import { addCarsBlockEvents } from "./buttonsPaginationEvent";
 
 async function addCarToPage(e) {
   e.preventDefault();
   const createCarForm = document.querySelector(".garage-block-create-car");
   const name = createCarForm.elements.carName.value;
   const color = createCarForm.elements.carColor.value;
+  const numbersOfCars = 1;
   if (name) {
     await postCar(name, color);
   } else {
-    await postCar(...generateNewCars(1)[0]);
+    await postCar(...generateNewCars(numbersOfCars)[0]);
   }
   const page = +document.querySelector(".page-number").textContent;
-  await renderGarageCars(page, 7);
+  await renderGarageCars(page, limitGarage);
+  addCarsBlockEvents();
 }
 
 async function updateCar(e) {
@@ -27,15 +30,17 @@ async function updateCar(e) {
   putCar(id, name, color);
 
   const page = +document.querySelector(".page-number").textContent;
-  renderGarageCars(page, limitGarage);
+  await renderGarageCars(page, limitGarage);
+  addCarsBlockEvents();
 }
 
 async function generateCars() {
-  const newCars = generateNewCars(100);
+  const newCars = generateNewCars(numberOfGeneratedCars);
   newCars.forEach((el) => {
     postCar(...el);
   });
   const page = +document.querySelector(".page-number").textContent;
-  renderGarageCars(page, limitGarage);
+  await renderGarageCars(page, limitGarage);
+  addCarsBlockEvents();
 }
 export { generateCars, updateCar, addCarToPage };

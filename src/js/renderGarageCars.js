@@ -24,5 +24,5 @@ export async function renderGarageCars(page, limit) {
     createCarBlock(elem);
   });
 
-  document.querySelector(".garage-count").innerHTML = `Garage(${totalCount})`;
+  document.querySelector(".garage-count").innerHTML = totalCount;
 }
