@@ -1,9 +1,10 @@
 import { createCarBlock } from "./dom/carBlockCreate";
+import { localHost } from "./defaultValue";
 
 export async function renderGarageCars(page, limit) {
   document.querySelector(".cars-wrapper").innerHTML = "";
   const response = await fetch(
-    `http://localhost:3000/garage?_page=${page}&_limit=${limit}`
+    `${localHost}/garage?_page=${page}&_limit=${limit}`
   );
   const json = await response.json();
 

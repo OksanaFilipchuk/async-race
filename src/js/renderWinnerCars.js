@@ -1,5 +1,6 @@
 import { winnerRowCreate } from "./dom/winnerRowCreate";
 import { getGarageCar } from "./requests/requests";
+import { localHost } from "./defaultValue";
 
 async function addWinnerCar(element, index, page, limit) {
   const { name, color } = await getGarageCar(element.id);
@@ -8,7 +9,7 @@ async function addWinnerCar(element, index, page, limit) {
 
 async function renderWinnerCars(page, limit) {
   const response = await fetch(
-    `http://localhost:3000/winners?_page=${page}&_limit=${limit}`
+    `${localHost}/winners?_page=${page}&_limit=${limit}`
   );
 
   const json = await response.json();

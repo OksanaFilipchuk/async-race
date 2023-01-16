@@ -4,3 +4,4 @@ export const startPage = 1;
 export const SERVER_ERROR_RESPONSE_CODE = 500;
 export const SUCCESSS_RESPONSE_CODE = 200;
 export const numberOfGeneratedCars = 100;
+export const localHost = "http://localhost:3000";

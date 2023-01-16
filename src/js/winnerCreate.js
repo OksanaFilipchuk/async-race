@@ -1,7 +1,7 @@
-import { SUCCESSS_RESPONSE_CODE } from "./defaultValue";
+import { SUCCESSS_RESPONSE_CODE, localHost } from "./defaultValue";
 
 export async function createWinner([id, time]) {
-  const responseGet = await fetch(`http://localhost:3000/winners/${id}`);
+  const responseGet = await fetch(`${localHost}/winners/${id}`);
   const jsonGet = await responseGet.json();
 
   if (responseGet.status === SUCCESSS_RESPONSE_CODE) {
@@ -9,7 +9,7 @@ export async function createWinner([id, time]) {
       wins: jsonGet.wins + 1,
       time: Math.min(time, jsonGet.time),
     };
-    const responsePut = await fetch(`http://localhost:3000/winners/${id}`, {
+    const responsePut = await fetch(`${localHost}/winners/${id}`, {
       method: "Put",
       body: JSON.stringify(docPut),
       headers: { "Content-Type": "application/json" },
@@ -22,7 +22,7 @@ export async function createWinner([id, time]) {
     wins: 1,
     time,
   };
-  const responsePost = await fetch(`http://localhost:3000/winners`, {
+  const responsePost = await fetch(`${localHost}/winners`, {
     method: "Post",
     body: JSON.stringify(docPost),
     headers: { "Content-Type": "application/json" },
